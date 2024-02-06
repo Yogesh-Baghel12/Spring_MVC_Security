@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        .center{
+            text-align: center;
+            color: black;
+        }
+      
+    </style>
+</head>
+<body>
+    <h2 class="center">Security</h2>
+    <hr>
+    <h1 class="center">Spring MVC Security</h1>
+    <hr>
+    User:<span sec:authentication="principal.username"></span>
+    <hr>
+    Role:<span sec:authentication="principal.authorities"></span>
+    <br/>
+    <div sec:authorize="hasRole('MANAGER')">
+    <p>
+        <a href="#" th:href="@{'/leaders'}" >Meeting for leaders Only/-</a>
+        (Only for Manager)
+    </p>
+</div>
+<div sec:authorize="hasRole('ADMIN')">
+    <p>
+        <a href="#" th:href="@{'/systems'}" >Meeting for System Administrators Only/-</a>
+        (Only for Manager)
+    </p>
+</div>
+    <form action="#" th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/> 
+    </form>
+</body>
+</html>
