@@ -30,7 +30,7 @@
 <div sec:authorize="hasRole('ADMIN')">
     <p>
         <a href="#" th:href="@{'/systems'}" >Meeting for System Administrators Only/-</a>
-        (Only for Manager)
+        (Only for ADMIN persons)
     </p>
 </div>
     <form action="#" th:action="@{/logout}" method="post">
